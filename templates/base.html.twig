@@ -3,17 +3,36 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
     </head>
     <body>
-        {% block body %}{% endblock %}
+        
+        {% include 'elements/navbar.html.twig' %}
+        
+        {% block body %}
+            <script type="text/javascript">
+            // Map appearance
+            var width="100%";         // width in pixels or percentage
+            var height="700";         // height in pixels
+            var latitude="0.00";      // center latitude (decimal degrees)
+            var longitude="0.00";     // center longitude (decimal degrees)
+            var zoom="3";             // initial zoom (between 3 and 18)
+            var names=true;          // always show ship names (defaults to false)
+
+            // Single ship tracking
+            //var mmsi="123456789";     // display latest position (by MMSI)
+            //var imo="1234567";        // display latest position (by IMO, overrides MMSI)
+            //var show_track=false;     // display track line (last 24 hours)
+
+            // Fleet tracking
+            //var fleet="daa665c3f0660bc4343348f076b3da21"; // your personal Fleet key (displayed in your User Profile)
+            //var fleet_name="Carnival"; // display particular fleet from your fleet list
+            //var fleet_timespan="1440"; // maximum age in minutes of the displayed ship positions
+            </script>
+            <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>
+        {% endblock %}
+        
+        {% include 'elements/footer.html.twig' %}
     </body>
 </html>
