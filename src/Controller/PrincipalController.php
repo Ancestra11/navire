@@ -16,7 +16,7 @@ class PrincipalController extends AbstractController
         ]);
     }
     
-    #[Route('/interface', name:'interface')]
+    #[Route('', name:'interface')]
     public function interface() : Response {
         return $this->render('base.html.twig');
     }

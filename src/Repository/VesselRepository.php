@@ -27,12 +27,19 @@ class VesselRepository extends ServiceEntityRepository
     public static function callVesselFinderAPI() : array {
         $client = new VesselFinderApi('daa665c3f0660bc4343348f076b3da21');
         try {
-            $vessels = $client->vessels([9228801,9441271], 227441980);
+            $vessels = $client->vessels([imo,mmsi]);
             //print_r($vessels);
         } catch (\Exceptions\ApiErrorException $e) {
             print_r($e->getMessage() . PHP_EOL);
         }
         return $vessels;
+    }
+    
+    public static function setImo(?string $imo): self
+    {
+        $this->imo = $imo;
+
+        return $this;
     }
     
     public function save(Vessel $entity, bool $flush = false): void

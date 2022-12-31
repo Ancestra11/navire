@@ -24,14 +24,26 @@
                 //var mmsi="563097900";     // display latest position (by MMSI)
                 //var imo="9399349";        // display latest position (by IMO, overrides MMSI)
                 var mmsi = null;
-                var imo = null;
+                var imo = {{ imoFromController }};
                 //var show_track=false;     // display track line (last 24 hours)
 
                 // Fleet tracking
                 //var fleet="daa665c3f0660bc4343348f076b3da21"; // your personal Fleet key (displayed in your User Profile)
                 //var fleet_name="Carnival"; // display particular fleet from your fleet list
                 //var fleet_timespan="1440"; // maximum age in minutes of the displayed ship positions
-               
+                
+                const searchBar = document.querySelector("input[type='search']");
+                const searchIMO = document.querySelector("button[name='IMO']");
+                const searchMMSI = document.querySelector("button[name='MMSI']");
+
+                searchIMO.addEventListener('click', function() {
+                  imo = searchBar.value;
+                });
+                
+                searchMMSI.addEventListener('click', function() {
+                  mmsi = searchBar.value;
+                });
+                
             </script>
             <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>
             
