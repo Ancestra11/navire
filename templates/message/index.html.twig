@@ -12,15 +12,15 @@
         {% block body %}
         <div class="container">
         {{ form_start(form) }}
-        <div class="col-8" id="some-custom-id">
+        <div class="col-8">
             {{ form_label(form.nom,'Nom') }}
             {{ form_widget(form.nom, {'attr': {'placeholder': 'Votre nom'}}) }}
         </div>
-        <div class="col-8" id="some-custom-id">
+        <div class="col-8">
             {{ form_label(form.prenom,'Prenom')}}
             {{ form_widget(form.prenom, {'attr': {'placeholder': 'Votre prénom' }}) }}
         </div>
-        <div class="col-8" id="some-custom-id">
+        <div class="col-8">
             {{ form_label(form.mail,'Mail')}}
             {{ form_widget(form.mail, {'attr': {'placeholder': 'Votre adresse email' }}) }}
         </div>

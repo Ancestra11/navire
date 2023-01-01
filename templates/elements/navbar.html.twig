@@ -1,30 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 <script>
-    function submitForm2(boolean) {
-                    // Récupère la valeur de la barre de recherche
-                    var searchQuery = document.querySelector('input[name="searchbar"]').value;
-                    // Stocke la valeur de la recherche dans un objet de paramètres de l'URL
-                    var searchParams = { searchbar: searchQuery };
-                    // Crée une URL de recherche à partir des paramètres de l'URL
-                    if (boolean === true) {
-                        var searchUrl = new URL('/imo/' + searchParams, 'http://navire.sio');
-                    } else {
-                        var searchUrl = new URL('/mmsi/' + searchParams, 'http://navire.sio');
-                    }
-                    console.log(searchUrl);
-                    searchUrl.search = new URLSearchParams(searchParams).toString();
-                    // Redirige l'utilisateur vers la nouvelle URL de recherche
-                    window.location = searchUrl;
-    }
-    function submitForm(boolean) {
-        console.log("bonsoir");
-                    var searchQuery = document.querySelector('input[name="searchbar"]').value;
-                    if (boolean === true) {
-                        window.location.href = "http://navire.sio/imo/" + searchQuery;
-                    } else {
-                        window.location.href = "http://navire.sio/mmsi/" + searchQuery;
-                    }
-    }
+       
 </script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
@@ -57,9 +33,9 @@
       <form class="d-flex">
     </div>
   </div>
-  <input class="form-control me-sm-2" type="search" placeholder="Rechercher un navire" name="searchbar"> &nbsp;
-    <button onclick="submitForm(true);" class="btn btn-secondary my-2 my-sm-0" type="submit" name="IMO">Cherche IMO</button> &nbsp;
-    <button onclick="submitForm(false);" class="btn btn-secondary my-2 my-sm-0" type="submit" name="MMSI">Cherche MMSI</button> &nbsp;
+  <input class="form-control me-sm-2" type="search" placeholder="Rechercher un navire" name="searchbar" id="searchbar"> &nbsp;
+    <button onclick="submitForm(true)" class="btn btn-secondary my-2 my-sm-0" type="button" name="IMO">Cherche IMO</button> &nbsp;
+    <button onclick="submitForm(false)" class="btn btn-secondary my-2 my-sm-0" type="button" name="MMSI">Cherche MMSI</button> &nbsp;
   </form>
   <img src="{{ asset('assets/titleShip.png') }}">
 </nav>

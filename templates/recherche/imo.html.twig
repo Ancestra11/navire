@@ -32,17 +32,15 @@
                 //var fleet_name="Carnival"; // display particular fleet from your fleet list
                 //var fleet_timespan="1440"; // maximum age in minutes of the displayed ship positions
                 
-                const searchBar = document.querySelector("input[type='search']");
-                const searchIMO = document.querySelector("button[name='IMO']");
-                const searchMMSI = document.querySelector("button[name='MMSI']");
-
-                searchIMO.addEventListener('click', function() {
-                  imo = searchBar.value;
-                });
-                
-                searchMMSI.addEventListener('click', function() {
-                  mmsi = searchBar.value;
-                });
+                function submitForm(boolean) {
+                    let userInput = document.getElementById("searchbar").value;
+                    console.log(userInput);
+                    if (boolean === true) {
+                        window.location.href = 'http://navire.sio/imo/' + userInput;
+                    } else {
+                        window.location.href = 'http://navire.sio/mmsi/' + userInput;
+                    }
+                }   
                 
             </script>
             <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>

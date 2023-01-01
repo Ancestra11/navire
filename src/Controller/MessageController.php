@@ -31,7 +31,7 @@ class MessageController extends AbstractController
             
             $email = $data->getMail();
             $config = \SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', 
-                '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');
+                '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');
             $apiInstance = new \SendinBlue\Client\Api\TransactionalEmailsApi(
                 new \GuzzleHttp\Client(),
                 $config
