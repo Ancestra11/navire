@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Contact{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+    </head>
+    <body>
+        {% include 'elements/navbar.html.twig' %}
+        <br>
+        {% block body %}
+            <h1> Votre demande a été transmise avec succès </h1>
+        {% endblock %}
+        
+        {% include 'elements/footer.html.twig' %}
+    </body>
+</html>

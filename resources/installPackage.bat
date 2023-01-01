@@ -13,3 +13,5 @@ symfony composer require symfony/asset
 symfony composer require symfony/mailer -W
 symfony composer require sensio/framework-extra-bundle 
 symfony composer require symfony/security-bundle
+
+composer require sendinblue/api-v3-sdk "8.3.1"
