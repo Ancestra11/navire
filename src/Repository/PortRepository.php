@@ -38,6 +38,20 @@ class PortRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    
+    public function findNomPays(int $idPays): ?Port {
+        $entityManager = $this->getEntityManager();
+        
+        $query = $entityManager->createQuery(
+            'SELECT DISTINCT pays.nom '
+            . 'FROM pays '
+            . 'INNER JOIN port '
+            . 'ON pays.id = port.idpays '
+            . 'WHERE port.idpays = :idPays;'
+        )->setParameter('idPays', $idPays);
+        
+        return $query->getResult();
+    }
 
 //    /**
 //     * @return Port[] Returns an array of Port objects
@@ -51,16 +65,6 @@ class PortRepository extends ServiceEntityRepository
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Port
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
 //        ;
 //    }
 }

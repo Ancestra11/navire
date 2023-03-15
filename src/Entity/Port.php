@@ -32,7 +32,7 @@ class Port
     private Collection $types;
     
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(name:'idpays', nullable: false)]
+    #[ORM\JoinColumn(name:'idpays', nullable: false, fetch:'EAGER')]
     private ?Pays $pays = null;
     
     #[ORM\OneToMany(mappedBy: 'destination', targetEntity: Navire::class)]

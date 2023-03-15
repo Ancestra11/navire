@@ -442,3 +442,4 @@ CREATE PROCEDURE navire.majdates ()
   
   SET SQL_SAFE_UPDATES=0; 
   call navire.majdates();
+  DROP TABLE IF EXISTS navire.dernieremodif;
